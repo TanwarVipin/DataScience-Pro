@@ -16,11 +16,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.image('https://images.projectsgeek.com/2018/07/recommendation.png')
-rating = pd.read_csv(r'C:\Users\user\PycharmProjects\pythonProject\BX-Book-Ratings.csv', sep=';', on_bad_lines='skip',
+rating = pd.read_csv(r'data/BX-Book-Ratings.csv', sep=';', on_bad_lines='skip',
                      encoding='latin-1')
-book = pd.read_csv(r'C:\Users\user\PycharmProjects\pythonProject\BX-Books.csv', sep=';', on_bad_lines='skip',
-                   encoding='latin-1')
-user = pd.read_csv(r'C:\Users\user\PycharmProjects\pythonProject\BX-Users.csv', sep=';', on_bad_lines='skip',
+book = pd.read_csv(r'data/BX-Books.csv', sep=';', on_bad_lines='skip',
+                   encoding='latin-1',low_memory=False)
+user = pd.read_csv(r'data/BX-Users.csv', sep=';', on_bad_lines='skip',
                    encoding='latin-1')
 final_df = Preprocess.preprocess(rating, book, user)
 matrix_df = helper.table(final_df)
